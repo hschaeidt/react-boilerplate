@@ -1,0 +1,5 @@
+exports[`<Example /> render correctly 1`] = `
+<p>
+  Example.jsx
+</p>
+`;

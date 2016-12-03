@@ -1,18 +1,20 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Clock from '../Example';
+import renderer from 'react-test-renderer';
+import Example from '../Example';
 
 describe('<Example />', () => {
-  it('should exist', () => {
-    expect(Clock).toBeDefined();
+  it('render correctly', () => {
+    const tree = renderer.create(<Example />);
+    expect(tree).toMatchSnapshot();
   });
 
   describe('render', () => {
     it('should render a paragraph', () => {
-      const clock = shallow(<Clock totalSeconds={62} />);
+      const clock = shallow(<Example />);
       const actualText = clock.find('p').text();
 
-      expect(actualText);
+      expect(actualText).toBe('Example.jsx');
     });
   });
 });
