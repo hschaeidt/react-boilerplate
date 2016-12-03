@@ -6,7 +6,6 @@ module.exports = {
   entry: [
     'script!jquery/dist/jquery.min.js',
     'script!foundation-sites/dist/foundation.min.js',
-    'foundation-sites/dist/foundation.min.css',
     './app/app.jsx',
   ],
   externals: {
@@ -19,7 +18,7 @@ module.exports = {
     }),
   ],
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.resolve(__dirname, '../public'),
     filename: 'bundle.js',
   },
   resolve: {
@@ -45,6 +44,11 @@ module.exports = {
         test: /\.scss$/,
         exclude: /(node_modules|bower_components)/,
       },
+    ],
+  },
+  sassLoader: {
+    includePaths: [
+      path.resolve(__dirname, '../node_modules/foundation-sites/scss'),
     ],
   },
 };
